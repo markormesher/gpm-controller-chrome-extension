@@ -1,0 +1,13 @@
+{
+	"manifest_version": 2,
+	"name": "Google Play Music Controller",
+	"description": "This extension allows control of Google Play Music without switching tabs.",
+	"version": "1.0",
+	"browser_action": {
+		"default_icon": "images/icon-play.png",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"tabs", "<all_urls>"
+	]
+}
