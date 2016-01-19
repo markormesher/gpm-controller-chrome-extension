@@ -1,13 +1,13 @@
-var currentlyPlaying = true;
+var currentlyPlaying, prevButton, playPauseButton, nextButton;
 
 document.addEventListener('DOMContentLoaded', function() {
 	// get views
-	var prevButton = document.getElementById('prev-btn');
-	var playPauseButton = document.getElementById('play-pause-btn');
-	var nextButton = document.getElementById('next-btn');
+	prevButton = document.getElementById('prev-btn');
+	playPauseButton = document.getElementById('play-pause-btn');
+	nextButton = document.getElementById('next-btn');
 
 	// TODO: get current playing status
-	currentlyPlaying = true;
+	currentlyPlaying = false;
 	updateIcon();
 
 	// play button listener
@@ -47,4 +47,5 @@ function withGpmTab(callback) {
 // sets the correct icon for the current play status
 function updateIcon() {
 	chrome.browserAction.setIcon({path: 'images/' + (currentlyPlaying ? 'icon-pause.png' : 'icon-play.png')});
+	playPauseButton.src = 'images/' + (currentlyPlaying ? 'btn-pause.png' : 'btn-play.png');
 }
