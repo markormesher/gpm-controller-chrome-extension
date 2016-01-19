@@ -34,6 +34,30 @@ document.addEventListener('DOMContentLoaded', function() {
 					updatePlayPauseIcon();
 				});
 			}, false);
+
+			// prev button listener
+			prevButton.addEventListener('click', function() {
+				withGpmTab(function(tab) {
+					// send the event
+					chrome.tabs.executeScript(tab.id, {code: 'clickPrev();'});
+
+					// refresh play/pause status
+					currentlyPlaying = true;
+					updatePlayPauseIcon();
+				});
+			}, false);
+
+			// next button listener
+			nextButton.addEventListener('click', function() {
+				withGpmTab(function(tab) {
+					// send the event
+					chrome.tabs.executeScript(tab.id, {code: 'clickNext();'});
+
+					// refresh play/pause status
+					currentlyPlaying = true;
+					updatePlayPauseIcon();
+				});
+			}, false);
 		});
 	});
 }, false);
